@@ -31,7 +31,8 @@ if(isset($_POST['email'], $_POST['password'])) {
             $error = 'Invalid password';
         }
     } else {
-        $error = 'No user found with the provided email';
+        // $error = 'No user found with the provided email';
+          header("Location:../view/register.php");
     }
 } else {
     $error = 'Invalid input data'; 

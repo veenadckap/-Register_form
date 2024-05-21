@@ -11,14 +11,23 @@ if(isset($_POST['name'], $_POST['email'], $_POST['password'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
   
+    // Check if email already exists
+    $checkEmailQuery = "SELECT * FROM users WHERE email = '$email'";
+    $result = $conn->query($checkEmailQuery);
 
+    if ($result && $result->num_rows > 0) {
+       
+        header("Location:../view/login.php");
+        exit;
+    }
 
+   
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$hashedPassword')";
 
     if ($conn->query($sql) === TRUE) {
-        header("Location:../view/login.html");
+        header("Location:../view/login.php");
         exit; 
     } else {
         echo "Error: Registration failed";

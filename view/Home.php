@@ -37,7 +37,7 @@
                 <h4 class="uppercase font-medium">hogwarts university</h4>
             </div>
             <div class="login-btn float-right font-medium">
-            <a href="./view/login.html">  <button class="uppercase">login</button></a>
+            <a href="./view/login.php">  <button class="uppercase">login</button></a>
               
             </div>
         </nav>
@@ -48,7 +48,7 @@
                     <p>Dear learners summary courses registration are available now.Please enrol if not already.</p>     
                 </div>
                 <div class=" text-center pt-10">
-                <a href="./view/register.html"><button class="btn">Register Now</button></a>
+                <a href="./view/register.php"><button class="btn">Register Now</button></a>
                 
                </div>
             </div>     
