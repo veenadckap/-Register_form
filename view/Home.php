@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,27 +29,20 @@
           
         }
     </style>
-</head>
+</head> 
 
 <body>
+    <?php include "./partial/nav.php";?>
+       
 
-        <nav class="head shadow-md items-center w-full h-16">
-            <div class="header flex justify-center pt-4">
-                <h4 class="uppercase font-medium">hogwarts university</h4>
-            </div>
-            <div class="login-btn float-right font-medium">
-            <a href="./view/login.php">  <button class="uppercase">login</button></a>
-              
-            </div>
-        </nav>
-
-        <div class="main flex justify-center flex-col">
+        <div class="main pl-[10%] flex justify-center flex-col">
         <div class="two_div  pt-40">
                 <div class="container text-center">
                     <p>Dear learners summary courses registration are available now.Please enrol if not already.</p>     
                 </div>
-                <div class=" text-center pt-10">
-                <a href="./view/register.php"><button class="btn">Register Now</button></a>
+                <div class="text-center pt-10">
+             
+                <a href="./register.php"><button class="btn">Register Now</button></a>
                 
                </div>
             </div>     

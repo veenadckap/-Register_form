@@ -7,8 +7,8 @@ class DatabaseConnection {
             $config['host'],
             $config['root'],
             $config['password'],
-            $config['database']
-        );
+            $config['database'],
+            );
 
         if (!$this->conn) {
             throw new Exception("Connection failed: " . mysqli_connect_error());

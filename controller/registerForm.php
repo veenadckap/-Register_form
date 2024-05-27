@@ -5,11 +5,13 @@ $db = require("../model/DB.php");
 $config = require('../config.php');
 $databaseConnection = new DatabaseConnection($config);
 $conn = $databaseConnection->getConnection();
+define('ENCRYPTION_KEY', 'e5f6d7e8c9b10f11e5f6d7e8c9b10f11');
 
-if(isset($_POST['name'], $_POST['email'], $_POST['password'])) {
+if(isset($_POST['name'], $_POST['email'], $_POST['password'] ,$_POST['course'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $course = $_POST['course'];
   
     // Check if email already exists
     $checkEmailQuery = "SELECT * FROM users WHERE email = '$email'";
@@ -22,9 +24,9 @@ if(isset($_POST['name'], $_POST['email'], $_POST['password'])) {
     }
 
    
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+     $encryptedPassword = openssl_encrypt($password, 'AES-128-ECB', ENCRYPTION_KEY);
 
-    $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$hashedPassword')";
+    $sql = "INSERT INTO users (name, email, password,course ) VALUES ('$name', '$email', '$encryptedPassword' ,'$course')";
 
     if ($conn->query($sql) === TRUE) {
         header("Location:../view/login.php");
